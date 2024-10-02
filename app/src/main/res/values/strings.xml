@@ -1,0 +1,34 @@
+<resources>
+  <string name="app_name">Flag Quiz</string>
+
+  <string name="quiz_app">Welcome to the Flag Quiz App!</string>
+  <string name="welcome">Welcome</string>
+
+  <string name="please_enter_your_name">Please enter your name</string>
+  <string name="name">e.g., Sergiusz</string>
+  <string name="start">Start</string>
+
+  <string name="sample_ques">Which country does this flag represent?</string>
+  <string name="quiz_image_Description">Image of the flag for the quiz</string>
+  <string name="_4_9_Progress">Question 4 of 9</string>
+  <string name="sample_option">Example Option</string>
+
+  <string name="finish">Finish quiz</string>
+  <string name="result">Your Quiz Result</string>
+  <string name="share_button_Description">Share Your Results</string>
+  <string name="info_button_description">Information Button</string>
+  <string name="result_image">Image showing your results</string>
+  <string name="hey_congratulations">Congratulations!</string>
+  <string name="username">Username</string>
+  <string name="your_score_is_0_out_of_10">You scored 0 out of 10.</string>
+  <string name="result_analysis">Detailed Result Analysis</string>
+  <string name="your_answer">Your Answer:</string>
+  <string name="correct_answer">Correct Answer:</string>
+  <string name="europe">Europa</string>
+  <string name="africa">Africa</string>
+  <string name="asia">Asia</string>
+  <string name="north_america">North America</string>
+  <string name="oceania">Oceania</string>
+  <string name="south_america">South America</string>
+
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/parentLayout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:padding="16dp"
+  android:background="@drawable/custom_background"
+  android:orientation="vertical"
+  tools:context=".InitialActivity">
+
+  <!-- Start Button -->
+
+  <!-- Container for additional content -->
+
+  <!-- Material Card View for input field -->
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:gravity="center"
+    android:orientation="vertical">
+    <!-- Additional content can be placed here -->
+  </LinearLayout>
+  <TextView
+    android:id="@+id/tv_europe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    android:gravity="center"
+    android:text="@string/europe"
+    android:textColor="#E6BDBD"
+    android:textSize="18sp"/>
+  <TextView
+    android:id="@+id/tv_africa"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    android:gravity="center"
+    android:text="@string/africa"
+    android:textColor="#E6BDBD"
+    android:textSize="18sp"/>
+  <TextView
+    android:id="@+id/tv_asia"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    android:gravity="center"
+    android:text="@string/asia"
+    android:textColor="#E6BDBD"
+    android:textSize="18sp"/>
+  <TextView
+    android:id="@+id/tv_north_america"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    android:gravity="center"
+    android:text="@string/north_america"
+    android:textColor="#E6BDBD"
+    android:textSize="18sp"/>
+  <TextView
+    android:id="@+id/tv_oceania"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    android:gravity="center"
+    android:text="@string/oceania"
+    android:textColor="#E6BDBD"
+    android:textSize="18sp"/>
+  <TextView
+    android:id="@+id/tv_south_america"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="16dp"
+    android:background="@android:drawable/dialog_holo_dark_frame"
+    android:gravity="center"
+    android:text="@string/south_america"
+    android:textColor="#E6BDBD"
+    android:textSize="18sp"/>
+  <com.google.android.material.card.MaterialCardView
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:backgroundTint="#BDD8ED"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_margin="16dp"
+      android:orientation="vertical">
+
+      <!-- Header TextView -->
+      <TextView
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="@string/please_enter_your_name"
+        android:textColor="#7A8089"
+        android:textSize="16sp"/>
+
+      <!-- TextInputLayout with EditText -->
+      <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:boxBackgroundColor="@android:color/white"
+        app:boxStrokeColor="@color/teal_700"
+        app:hintTextColor="@color/teal_200">
+
+        <androidx.appcompat.widget.AppCompatEditText
+          android:id="@+id/input_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/name"
+          android:inputType="textCapWords"
+          android:textColor="#364A33"
+          android:textColorHint="#7A8089"/>
+      </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+  </com.google.android.material.card.MaterialCardView>
+
+</LinearLayout>
