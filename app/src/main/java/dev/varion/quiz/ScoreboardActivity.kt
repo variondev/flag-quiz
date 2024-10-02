@@ -12,9 +12,9 @@ class ScoreboardActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scoreboard)
 
-        findViewById<TextView>(R.id.name).text = intent.getStringExtra("user_name")
+        findViewById<TextView>(R.id.name).text = intent.getStringExtra("username")
 
-        val correctAnswer = intent.getIntExtra("correct_answer", 0)
+        val correctlyAnswered = intent.getIntExtra("correctly_answered", 0)
         val totalQuestions = intent.getIntExtra("total_questions", 0)
         findViewById<TextView>(R.id.score).text =
             "You scored $correctAnswer out of ${totalQuestions}!"
