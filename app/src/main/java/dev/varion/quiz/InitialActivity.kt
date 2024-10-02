@@ -28,7 +28,7 @@ class InitialActivity : Activity() {
                     makeText(this, "Please enter your name!", LENGTH_LONG).show()
                 } else {
                     val intent = Intent(this, QuestionActivity::class.java)
-                    intent.putExtra("user_name", nameInput.text.toString())
+                    intent.putExtra("username", nameInput.text.toString())
                     intent.putExtra("chosen_continent", it.key.toString())
                     startActivity(intent)
                     finish()
