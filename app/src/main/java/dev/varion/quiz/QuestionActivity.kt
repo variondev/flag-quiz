@@ -333,7 +333,7 @@ class QuestionActivity : Activity(), View.OnClickListener {
         thirdOption = findViewById(R.id.third_option)
         fourthOption = findViewById(R.id.fourth_option)
         mQuestionsList = produceQuestions(chosenContinent)
-        if (mQuestionsList.isEmpty) {
+        if (mQuestionsList.isEmpty()) {
             finishQuiz()
             return
         }
