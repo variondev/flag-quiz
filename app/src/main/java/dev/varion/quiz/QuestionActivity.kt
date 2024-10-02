@@ -20,11 +20,11 @@ class QuestionActivity : Activity(), View.OnClickListener {
 
     private val questionsChosen = ArrayList<Int>()
 
-    private lateinit var mUserName: String
-    private var mCorrectAnswers: Int = 0
-    private var mCurrentPosition: Int = 1
-    private lateinit var mQuestionsList: ArrayList<Question>
-    private var mSelectedOptionPosition: Int = 0
+    private lateinit var username: String
+    private var correctlyAnswered: Int = 0
+    private var currentPosition: Int = 1
+    private lateinit var questionsList: ArrayList<Question>
+    private var selectedOptionPosition: Int = 0
 
     private var ivImage: ImageView? = null
 
@@ -322,7 +322,7 @@ class QuestionActivity : Activity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mUserName = intent.getStringExtra("user_name")!!
+        username = intent.getStringExtra("username")!!
         val chosenContinent = intent.getStringExtra("chosen_continent")!!
 
         setContentView(R.layout.activity_question)
@@ -332,8 +332,8 @@ class QuestionActivity : Activity(), View.OnClickListener {
         secondOption = findViewById(R.id.second_option)
         thirdOption = findViewById(R.id.third_option)
         fourthOption = findViewById(R.id.fourth_option)
-        mQuestionsList = produceQuestions(chosenContinent)
-        if (mQuestionsList.isEmpty()) {
+        questionsList = produceQuestions(chosenContinent)
+        if (questionsList.isEmpty()) {
             finishQuiz()
             return
         }
@@ -346,7 +346,7 @@ class QuestionActivity : Activity(), View.OnClickListener {
     private fun nextQuestion() {
 
         resetOptions()
-        val question: Question = mQuestionsList[mCurrentPosition - 1]
+        val question: Question = questionsList[currentPosition - 1]
 
         ivImage?.setImageResource(question.image)
         val answers = question.availableAnswers
@@ -379,41 +379,41 @@ class QuestionActivity : Activity(), View.OnClickListener {
 
     private fun submit(tv: TextView, selectedOptionNum: Int) {
         resetOptions()
-        mSelectedOptionPosition = selectedOptionNum
+        selectedOptionPosition = selectedOptionNum
         tv.setTextColor(Color.parseColor("#363A43"))
         tv.setTypeface(tv.typeface, Typeface.BOLD)
         tv.background = ContextCompat.getDrawable(
             this, R.drawable.selected_option_border_bg
         )
 
-        Log.d("submit", "onClick: Option selected: $mSelectedOptionPosition")
+        Log.d("submit", "onClick: Option selected: $selectedOptionPosition")
 
         firstOption.isEnabled = false
         secondOption.isEnabled = false
         thirdOption.isEnabled = false
         fourthOption.isEnabled = false
 
-        val question = mQuestionsList[mCurrentPosition - 1]
+        val question = questionsList[currentPosition - 1]
         Log.d("submit", question.toString())
 
-        if (question.correctAnswerIndex + 1 != mSelectedOptionPosition) {
-            answerView(mSelectedOptionPosition, R.drawable.wrong_option_border_bg)
+        if (question.correctAnswerIndex + 1 != selectedOptionPosition) {
+            answerView(selectedOptionPosition, R.drawable.wrong_option_border_bg)
             Log.d(
                 "submit",
-                "answer=${mSelectedOptionPosition}, correct=${question.correctAnswerIndex}"
+                "answer=${selectedOptionPosition}, correct=${question.correctAnswerIndex}"
             )
         } else {
-            mCorrectAnswers++
+            correctlyAnswered++
         }
 
         answerView(question.correctAnswerIndex + 1, R.drawable.correct_option_border_bg)
-        questionsChosen.add(mSelectedOptionPosition)
-        mSelectedOptionPosition = 0
-        mCurrentPosition++
+        questionsChosen.add(selectedOptionPosition)
+        selectedOptionPosition = 0
+        currentPosition++
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000L)
-            if (mCurrentPosition <= mQuestionsList.size) {
+            if (currentPosition <= questionsList.size) {
                 nextQuestion()
             } else {
                 finishQuiz()
@@ -432,9 +432,9 @@ class QuestionActivity : Activity(), View.OnClickListener {
 
     private fun finishQuiz() {
         val intent = Intent(this@QuestionActivity, ScoreboardActivity::class.java)
-        intent.putExtra("user_name", mUserName)
-        intent.putExtra("correct_answer", mCorrectAnswers)
-        intent.putExtra("total_questions", mQuestionsList.size)
+        intent.putExtra("username", username)
+        intent.putExtra("correctly_answered", correctlyAnswered)
+        intent.putExtra("total_questions", questionsList.size)
         startActivity(intent)
         finish()
     }
