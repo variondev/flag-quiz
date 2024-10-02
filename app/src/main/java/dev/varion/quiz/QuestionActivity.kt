@@ -23,7 +23,7 @@ class QuestionActivity : Activity(), View.OnClickListener {
     private lateinit var username: String
     private var correctlyAnswered: Int = 0
     private var currentPosition: Int = 1
-    private lateinit var questionsList: ArrayList<Question>
+    private lateinit var questionList: ArrayList<Question>
     private var selectedOptionPosition: Int = 0
 
     private var ivImage: ImageView? = null
@@ -332,8 +332,8 @@ class QuestionActivity : Activity(), View.OnClickListener {
         secondOption = findViewById(R.id.second_option)
         thirdOption = findViewById(R.id.third_option)
         fourthOption = findViewById(R.id.fourth_option)
-        questionsList = produceQuestions(chosenContinent)
-        if (questionsList.isEmpty()) {
+        produceQuestions(chosenContinent)
+        if (questionList.isEmpty()) {
             finishQuiz()
             return
         }
@@ -393,7 +393,7 @@ class QuestionActivity : Activity(), View.OnClickListener {
         thirdOption.isEnabled = false
         fourthOption.isEnabled = false
 
-        val question = questionsList[currentPosition - 1]
+        val question = questionList[currentPosition - 1]
         Log.d("submit", question.toString())
 
         if (question.correctAnswerIndex + 1 != selectedOptionPosition) {
@@ -413,7 +413,7 @@ class QuestionActivity : Activity(), View.OnClickListener {
 
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000L)
-            if (currentPosition <= questionsList.size) {
+            if (currentPosition <= questionList.size) {
                 nextQuestion()
             } else {
                 finishQuiz()
@@ -434,7 +434,7 @@ class QuestionActivity : Activity(), View.OnClickListener {
         val intent = Intent(this@QuestionActivity, ScoreboardActivity::class.java)
         intent.putExtra("username", username)
         intent.putExtra("correctly_answered", correctlyAnswered)
-        intent.putExtra("total_questions", questionsList.size)
+        intent.putExtra("total_questions", questionList.size)
         startActivity(intent)
         finish()
     }
