@@ -446,11 +446,10 @@ class QuestionActivity : Activity(), View.OnClickListener {
         }
     }
 
-    fun produceQuestions(continent: String): ArrayList<Question> {
-        return countriesByContinent[continent]?.let { countriesByContinent ->
+    fun produceQuestions(continent: String) {
+        countriesByContinent[continent]?.let { countriesByContinent ->
             val countries = countriesByContinent.filter { flagIdByCountry.contains(it) }
 
-            val questionList = ArrayList<Question>()
             val chosenCountries = mutableSetOf<String>()
 
             val numberOfQuestions = minOf(100, countries.size) + 1
@@ -488,9 +487,6 @@ class QuestionActivity : Activity(), View.OnClickListener {
                     )
                 }
             }
-
-            return questionList
-        } ?: arrayListOf()
     }
 }
 
