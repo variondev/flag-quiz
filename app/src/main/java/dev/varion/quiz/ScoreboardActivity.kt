@@ -17,7 +17,7 @@ class ScoreboardActivity : Activity() {
         val correctlyAnswered = intent.getIntExtra("correctly_answered", 0)
         val totalQuestions = intent.getIntExtra("total_questions", 0)
         findViewById<TextView>(R.id.score).text =
-            "You scored $correctAnswer out of ${totalQuestions}!"
+            "You scored $correctlyAnswered out of ${totalQuestions}!"
 
         findViewById<Button>(R.id.finish_button).setOnClickListener {
             startActivity(Intent(this, QuestionActivity::class.java))
